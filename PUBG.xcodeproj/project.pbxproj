@@ -10,6 +10,8 @@
 		4E64483F2059B950007F25C6 /* PUBG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E6448352059B950007F25C6 /* PUBG.framework */; };
 		4E6448442059B950007F25C6 /* PUBGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6448432059B950007F25C6 /* PUBGTests.swift */; };
 		4E6448462059B950007F25C6 /* PUBG.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E6448382059B950007F25C6 /* PUBG.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4EF067AD2059C4AE004CBEAF /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF067AC2059C4AE004CBEAF /* Client.swift */; };
+		4EF067AF2059C9F6004CBEAF /* ClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF067AE2059C9F6004CBEAF /* ClientTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		4E64483E2059B950007F25C6 /* PUBGTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PUBGTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E6448432059B950007F25C6 /* PUBGTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PUBGTests.swift; sourceTree = "<group>"; };
 		4E6448452059B950007F25C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EF067AC2059C4AE004CBEAF /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		4EF067AE2059C9F6004CBEAF /* ClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 		4E6448372059B950007F25C6 /* PUBG */ = {
 			isa = PBXGroup;
 			children = (
+				4EF067AC2059C4AE004CBEAF /* Client.swift */,
 				4E64484F2059BAD8007F25C6 /* Platforms */,
 			);
 			name = PUBG;
@@ -80,6 +85,7 @@
 		4E6448422059B950007F25C6 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				4EF067AE2059C9F6004CBEAF /* ClientTests.swift */,
 				4E6448432059B950007F25C6 /* PUBGTests.swift */,
 				4E6448512059BB56007F25C6 /* Platforms */,
 			);
@@ -231,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EF067AD2059C4AE004CBEAF /* Client.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EF067AF2059C9F6004CBEAF /* ClientTests.swift in Sources */,
 				4E6448442059B950007F25C6 /* PUBGTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,6 +418,7 @@
 		4E64484D2059B950007F25C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Tests/PUBG-Tests/Platforms/iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.jonathanbaker.$(PRODUCT_NAME:rfc1034identifier)";
@@ -422,6 +431,7 @@
 		4E64484E2059B950007F25C6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Tests/PUBG-Tests/Platforms/iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "me.jonathanbaker.$(PRODUCT_NAME:rfc1034identifier)";
