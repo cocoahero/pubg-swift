@@ -22,7 +22,7 @@ class ClientTests: XCTestCase {
         let client = Client(apiKey: "abc123")
 
         do {
-            let request = client.requestWithRegion("pc-na", path: "matches")
+            let request = try client.otherRequestWithRegion("pc-na", path: "matches")
             guard let url = request.url else {
                 XCTFail("Request URL is missing")
                 return
@@ -31,9 +31,12 @@ class ClientTests: XCTestCase {
             XCTAssertEqual(url.path, "/shard/pc-na/matches")
             XCTAssertEqual(url.query, "")
         }
+        catch {
+            XCTFail(error.localizedDescription)
+        }
 
         do {
-            let request = client.requestWithRegion("xbox-na", path: "matches/1337", parameters: ["sort": "createdAt"])
+            let request = try client.otherRequestWithRegion("xbox-na", path: "matches/1337", parameters: ["sort": "createdAt"])
             guard let url = request.url else {
                 XCTFail("Request URL is missing")
                 return
@@ -41,6 +44,9 @@ class ClientTests: XCTestCase {
 
             XCTAssertEqual(url.path, "/shard/xbox-na/matches/1337")
             XCTAssertEqual(url.query, "sort=createdAt")
+        }
+        catch {
+            XCTFail(error.localizedDescription)
         }
     }
 }
