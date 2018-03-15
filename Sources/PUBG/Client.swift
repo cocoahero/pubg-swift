@@ -25,4 +25,20 @@ public class Client {
         baseRequest.setValue("application/vnd.api+json", forHTTPHeaderField: "Accept")
         self.baseRequest = baseRequest
     }
+
+    // MARK: - Internal
+
+    func requestWithRegion(_ region: String, path: String, parameters: [String: String] = [:]) -> URLRequest {
+        guard var urlComponents = baseRequest.url.flatMap({ URLComponents(url: $0, resolvingAgainstBaseURL: true) }) else {
+            preconditionFailure()
+        }
+
+        urlComponents.path = "/shard/\(region)/\(path)"
+        urlComponents.queryItems = parameters.map({ URLQueryItem(name: $0, value: $1) })
+
+        var mutableRequest = baseRequest
+        mutableRequest.url = urlComponents.url
+
+        return mutableRequest
+    }
 }
