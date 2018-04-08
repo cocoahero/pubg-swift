@@ -22,19 +22,26 @@ public class Client {
 
     // MARK: - Internal
 
-    func requestWithRegion(_ region: Region, path: String, parameters: [String: String] = [:]) throws -> URLRequest {
+    func requestWithRegion(_ region: Region, path: String, parameters: [String: String] = [:]) -> Result<URLRequest> {
         var urlComponents = URLComponents(string: "https://api.playbattlegrounds.com/")!
 
         urlComponents.path = "/shard/\(region.rawValue)/\(path)"
         urlComponents.queryItems = parameters.map({ URLQueryItem(name: $0, value: $1) })
 
         guard var request = urlComponents.url.map({ URLRequest(url: $0) }) else {
-            throw URLError(.badURL)
+            return .failure(Error.invalidURL)
         }
 
         request.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
         request.setValue("application/vnd.api+json", forHTTPHeaderField: "Accept")
 
-        return request
+        return .success(request)
+    }
+}
+
+extension Client {
+    public enum Error: Swift.Error {
+        case invalidURL
+        case unknown
     }
 }
