@@ -1,5 +1,4 @@
 [![Carthage Compatible](https://img.shields.io/badge/carthage-compatible-4BC51D.svg)](https://github.com/Carthage/Carthage)
-[![Swift Package Manager Compatible](https://img.shields.io/badge/SwiftPM-Compatible-EB5345.svg)](https://swift.org/package-manager/)
 
 # PUBG Swift
 
