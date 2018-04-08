@@ -1,4 +1,5 @@
 [![Carthage Compatible](https://img.shields.io/badge/carthage-compatible-4BC51D.svg)](https://github.com/Carthage/Carthage)
+[![Swift Package Manager Compatible](https://img.shields.io/badge/SwiftPM-Compatible-EB5345.svg)](https://swift.org/package-manager/)
 
 # PUBG Swift
 
@@ -6,14 +7,20 @@ A Swift library for interacting with the official PlayerUnknown's Battlegrounds'
 
 ## Installation
 
-### [Swift Package Manager](https://swift.org/package-manager/)
-
-```
-.package(url: "https://github.com/cocoahero/pubg-swift.git")
-```
-
 ### [Carthage](https://github.com/carthage/carthage)
 
 ```
 github "cocoahero/pubg-swift" "master"
+```
+
+### [Cocoapods](https://cocoapods.org)
+
+```
+Coming Soon...
+```
+
+### [Swift Package Manager](https://swift.org/package-manager/)
+
+```
+.package(url: "https://github.com/cocoahero/pubg-swift.git")
 ```
