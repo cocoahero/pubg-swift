@@ -34,7 +34,7 @@ public class Client {
 
     // MARK: - Internal
 
-    func executeRequest(region: Region, path: String, parameters: [String: String] = [:], resultHandler: @escaping (Result<Data>) -> Void) -> URLSessionTask? {
+    func executeRequest(region: Region?, path: String, parameters: [String: String] = [:], resultHandler: @escaping (Result<Data>) -> Void) -> URLSessionTask? {
         switch requestWithRegion(region, path: path, parameters: parameters) {
         case .success(let request):
             return executeRequest(request, resultHandler: resultHandler)
@@ -68,10 +68,15 @@ public class Client {
         return task
     }
 
-    func requestWithRegion(_ region: Region, path: String, parameters: [String: String] = [:]) -> Result<URLRequest> {
+    func requestWithRegion(_ region: Region?, path: String, parameters: [String: String] = [:]) -> Result<URLRequest> {
         var urlComponents = URLComponents(string: "https://api.playbattlegrounds.com/")!
 
-        urlComponents.path = "/shard/\(region.rawValue)/\(path)"
+        if let region = region?.rawValue {
+            urlComponents.path = "/shard/\(region)/\(path)"
+        }
+        else {
+            urlComponents.path = "/\(path)"
+        }
         urlComponents.queryItems = parameters.map({ URLQueryItem(name: $0, value: $1) })
 
         guard var request = urlComponents.url.map({ URLRequest(url: $0) }) else {
