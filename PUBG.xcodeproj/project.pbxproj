@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4E39E896207A6D1400945570 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E39E895207A6D1400945570 /* Region.swift */; };
+		4E39E898207AB36300945570 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E39E897207AB36300945570 /* Result.swift */; };
 		4E64483F2059B950007F25C6 /* PUBG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E6448352059B950007F25C6 /* PUBG.framework */; };
 		4E6448442059B950007F25C6 /* PUBGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6448432059B950007F25C6 /* PUBGTests.swift */; };
 		4E6448462059B950007F25C6 /* PUBG.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E6448382059B950007F25C6 /* PUBG.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		4E39E895207A6D1400945570 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		4E39E897207AB36300945570 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		4E6448352059B950007F25C6 /* PUBG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PUBG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E6448382059B950007F25C6 /* PUBG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PUBG.h; sourceTree = "<group>"; };
 		4E6448392059B950007F25C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				4EF067AC2059C4AE004CBEAF /* Client.swift */,
 				4E39E895207A6D1400945570 /* Region.swift */,
+				4E39E897207AB36300945570 /* Result.swift */,
 				4E64484F2059BAD8007F25C6 /* Platforms */,
 			);
 			name = PUBG;
@@ -241,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EF067AD2059C4AE004CBEAF /* Client.swift in Sources */,
+				4E39E898207AB36300945570 /* Result.swift in Sources */,
 				4E39E896207A6D1400945570 /* Region.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
