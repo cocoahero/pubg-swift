@@ -8,7 +8,7 @@
 
 /// A simple type to represent a result that can be either
 /// successful or unsuccessful (failure).
-public enum Result<Value, Error: Swift.Error> {
+public enum Result<Value> {
     case success(Value)
     case failure(Error)
 
@@ -27,7 +27,7 @@ public enum Result<Value, Error: Swift.Error> {
             self = .success(try attempt())
         }
         catch {
-            self = .failure(error as! Error)
+            self = .failure(error)
         }
     }
 }
