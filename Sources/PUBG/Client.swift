@@ -14,10 +14,13 @@ public class Client {
 
     let apiKey: String
 
+    let urlSession: URLSession
+
     // MARK: - Initializers
 
-    public init(apiKey: String) {
+    public init(apiKey: String, urlSession: URLSession = .shared) {
         self.apiKey = apiKey
+        self.urlSession = urlSession
     }
 
     // MARK: - Public
@@ -50,7 +53,7 @@ public class Client {
     }
 
     func executeRequest(_ request: URLRequest, resultHandler: @escaping (Result<Data>) -> Void) -> URLSessionTask {
-        let task = URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
+        let task = urlSession.dataTask(with: request, completionHandler: { data, response, error in
             if let data = data, let response = response as? HTTPURLResponse {
                 switch response.statusCode {
                 case 200:
