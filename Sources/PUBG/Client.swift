@@ -32,6 +32,11 @@ public class Client {
         return executeRequest(region: region, path: "players/\(id)", resultHandler: resultHandler)
     }
 
+    @discardableResult
+    public func status(resultHandler: @escaping (Result<Data>) -> Void) -> URLSessionTask? {
+        return executeRequest(region: nil, path: "status", resultHandler: resultHandler)
+    }
+
     // MARK: - Internal
 
     func executeRequest(region: Region?, path: String, parameters: [String: String] = [:], resultHandler: @escaping (Result<Data>) -> Void) -> URLSessionTask? {
