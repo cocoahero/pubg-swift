@@ -22,10 +22,10 @@ public class Client {
 
     // MARK: - Internal
 
-    func requestWithRegion(_ region: String, path: String, parameters: [String: String] = [:]) throws -> URLRequest {
+    func requestWithRegion(_ region: Region, path: String, parameters: [String: String] = [:]) throws -> URLRequest {
         var urlComponents = URLComponents(string: "https://api.playbattlegrounds.com/")!
 
-        urlComponents.path = "/shard/\(region)/\(path)"
+        urlComponents.path = "/shard/\(region.rawValue)/\(path)"
         urlComponents.queryItems = parameters.map({ URLQueryItem(name: $0, value: $1) })
 
         guard var request = urlComponents.url.map({ URLRequest(url: $0) }) else {
