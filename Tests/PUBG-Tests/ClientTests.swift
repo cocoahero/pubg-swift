@@ -50,6 +50,26 @@ class ClientTests: XCTestCase {
         }
     }
 
+    func testMatchWithID() {
+        let client = Client(apiKey: "abc123")
+
+        let task = client.match(withID: "abc-123", region: .pcNorthAmerica, resultHandler: { _ in })
+
+        let url = task?.originalRequest?.url
+        XCTAssertEqual(url?.path, "/shard/pc-na/matches/abc-123")
+        XCTAssertEqual(url?.query, "")
+    }
+
+    func testPlayerWithID() {
+        let client = Client(apiKey: "abc123")
+
+        let task = client.player(withID: "abc-123", region: .pcNorthAmerica, resultHandler: { _ in })
+
+        let url = task?.originalRequest?.url
+        XCTAssertEqual(url?.path, "/shard/pc-na/players/abc-123")
+        XCTAssertEqual(url?.query, "")
+    }
+
     func testPlayersWithIDs() {
         let client = Client(apiKey: "abc123")
 
@@ -68,5 +88,15 @@ class ClientTests: XCTestCase {
         let url = task?.originalRequest?.url
         XCTAssertEqual(url?.path, "/shard/pc-na/players")
         XCTAssertEqual(url?.query?.removingPercentEncoding, "filter[playerNames]=PlayerUnknown,FooBar")
+    }
+
+    func testStatus() {
+        let client = Client(apiKey: "abc123")
+
+        let task = client.status(resultHandler: { _ in })
+
+        let url = task?.originalRequest?.url
+        XCTAssertEqual(url?.path, "/status")
+        XCTAssertEqual(url?.query, "")
     }
 }
