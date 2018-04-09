@@ -49,4 +49,24 @@ class ClientTests: XCTestCase {
             XCTFail(error.localizedDescription)
         }
     }
+
+    func testPlayersWithIDs() {
+        let client = Client(apiKey: "abc123")
+
+        let task = client.players(withIDs: ["abc-123", "def-456"], region: .pcNorthAmerica, resultHandler: { _ in })
+
+        let url = task?.originalRequest?.url
+        XCTAssertEqual(url?.path, "/shard/pc-na/players")
+        XCTAssertEqual(url?.query?.removingPercentEncoding, "filter[playerIds]=abc-123,def-456")
+    }
+
+    func testPlayersWithNames() {
+        let client = Client(apiKey: "abc123")
+
+        let task = client.players(withNames: ["PlayerUnknown", "FooBar"], region: .pcNorthAmerica, resultHandler: { _ in })
+
+        let url = task?.originalRequest?.url
+        XCTAssertEqual(url?.path, "/shard/pc-na/players")
+        XCTAssertEqual(url?.query?.removingPercentEncoding, "filter[playerNames]=PlayerUnknown,FooBar")
+    }
 }

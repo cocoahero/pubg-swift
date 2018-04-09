@@ -36,6 +36,16 @@ public class Client {
     }
 
     @discardableResult
+    public func players(withIDs ids: [String], region: Region, resultHandler: @escaping (Result<Data>) -> Void) -> URLSessionTask? {
+        return executeRequest(region: region, path: "players", parameters: ["filter[playerIds]": ids.joined(separator: ",")], resultHandler: resultHandler)
+    }
+
+    @discardableResult
+    public func players(withNames names: [String], region: Region, resultHandler: @escaping (Result<Data>) -> Void) -> URLSessionTask? {
+        return executeRequest(region: region, path: "players", parameters: ["filter[playerNames]": names.joined(separator: ",")], resultHandler: resultHandler)
+    }
+
+    @discardableResult
     public func status(resultHandler: @escaping (Result<Data>) -> Void) -> URLSessionTask? {
         return executeRequest(region: nil, path: "status", resultHandler: resultHandler)
     }
