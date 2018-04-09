@@ -6,7 +6,7 @@
 //  Copyright © 2018 Jonathan Baker. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for PUBG.
 FOUNDATION_EXPORT double PUBGVersionNumber;
