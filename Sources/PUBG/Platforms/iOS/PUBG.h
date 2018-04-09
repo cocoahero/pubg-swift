@@ -13,7 +13,3 @@ FOUNDATION_EXPORT double PUBGVersionNumber;
 
 //! Project version string for PUBG.
 FOUNDATION_EXPORT const unsigned char PUBGVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <PUBG/PublicHeader.h>
-
-
