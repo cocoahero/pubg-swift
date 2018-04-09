@@ -82,7 +82,6 @@ public class Client {
                 resultHandler(.failure(error ?? Error.unknown))
             }
         })
-        task.resume()
         return task
     }
 
