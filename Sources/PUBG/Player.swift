@@ -13,4 +13,13 @@ public struct Player: Decodable {
     // MARK: - Properties
 
     public let id: String
+
+    public let attributes: Attributes
+}
+
+extension Player {
+    public struct Attributes: Decodable {
+
+        public let name: String
+    }
 }
