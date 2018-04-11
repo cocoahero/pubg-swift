@@ -16,6 +16,7 @@
 		4E64483F2059B950007F25C6 /* PUBG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E6448352059B950007F25C6 /* PUBG.framework */; };
 		4E6448442059B950007F25C6 /* PUBGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6448432059B950007F25C6 /* PUBGTests.swift */; };
 		4E6448462059B950007F25C6 /* PUBG.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E6448382059B950007F25C6 /* PUBG.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4EA78227207E71020039C8F0 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA78226207E71020039C8F0 /* GameMode.swift */; };
 		4EF067AD2059C4AE004CBEAF /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF067AC2059C4AE004CBEAF /* Client.swift */; };
 		4EF067AF2059C9F6004CBEAF /* ClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF067AE2059C9F6004CBEAF /* ClientTests.swift */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		4E64483E2059B950007F25C6 /* PUBGTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PUBGTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E6448432059B950007F25C6 /* PUBGTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PUBGTests.swift; sourceTree = "<group>"; };
 		4E6448452059B950007F25C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EA78226207E71020039C8F0 /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
 		4EF067AC2059C4AE004CBEAF /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		4EF067AE2059C9F6004CBEAF /* ClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				4EF067AC2059C4AE004CBEAF /* Client.swift */,
+				4EA78226207E71020039C8F0 /* GameMode.swift */,
 				4E119018207E43D000D9251B /* Match.swift */,
 				4E119016207E422100D9251B /* Player.swift */,
 				4E39E895207A6D1400945570 /* Region.swift */,
@@ -255,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EA78227207E71020039C8F0 /* GameMode.swift in Sources */,
 				4EF067AD2059C4AE004CBEAF /* Client.swift in Sources */,
 				4E119015207E3F6300D9251B /* Response.swift in Sources */,
 				4E11901B207E43F300D9251B /* Status.swift in Sources */,

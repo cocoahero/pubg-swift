@@ -22,7 +22,7 @@ public struct Match: Decodable {
         return attributes.duration
     }
 
-    public var gameMode: String {
+    public var gameMode: GameMode {
         return attributes.gameMode
     }
 
@@ -44,7 +44,7 @@ extension Match {
 
         let mapName: String
 
-        let gameMode: String
+        let gameMode: GameMode
 
         let duration: TimeInterval
 
