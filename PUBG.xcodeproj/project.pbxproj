@@ -10,6 +10,7 @@
 		4E119015207E3F6300D9251B /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E119014207E3F6300D9251B /* Response.swift */; };
 		4E119017207E422100D9251B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E119016207E422100D9251B /* Player.swift */; };
 		4E119019207E43D000D9251B /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E119018207E43D000D9251B /* Match.swift */; };
+		4E11901B207E43F300D9251B /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E11901A207E43F300D9251B /* Status.swift */; };
 		4E39E896207A6D1400945570 /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E39E895207A6D1400945570 /* Region.swift */; };
 		4E39E898207AB36300945570 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E39E897207AB36300945570 /* Result.swift */; };
 		4E64483F2059B950007F25C6 /* PUBG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E6448352059B950007F25C6 /* PUBG.framework */; };
@@ -33,6 +34,7 @@
 		4E119014207E3F6300D9251B /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		4E119016207E422100D9251B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		4E119018207E43D000D9251B /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
+		4E11901A207E43F300D9251B /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		4E39E895207A6D1400945570 /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		4E39E897207AB36300945570 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		4E6448352059B950007F25C6 /* PUBG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PUBG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +93,7 @@
 				4E39E895207A6D1400945570 /* Region.swift */,
 				4E119014207E3F6300D9251B /* Response.swift */,
 				4E39E897207AB36300945570 /* Result.swift */,
+				4E11901A207E43F300D9251B /* Status.swift */,
 				4E64484F2059BAD8007F25C6 /* Platforms */,
 			);
 			name = PUBG;
@@ -254,6 +257,7 @@
 			files = (
 				4EF067AD2059C4AE004CBEAF /* Client.swift in Sources */,
 				4E119015207E3F6300D9251B /* Response.swift in Sources */,
+				4E11901B207E43F300D9251B /* Status.swift in Sources */,
 				4E39E898207AB36300945570 /* Result.swift in Sources */,
 				4E119017207E422100D9251B /* Player.swift in Sources */,
 				4E39E896207A6D1400945570 /* Region.swift in Sources */,
