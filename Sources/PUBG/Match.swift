@@ -13,4 +13,13 @@ public struct Match: Decodable {
     // MARK: - Properties
 
     public let id: String
+
+    public let attributes: Attributes
+}
+
+extension Match {
+    public struct Attributes: Decodable {
+
+        public let duration: TimeInterval
+    }
 }
