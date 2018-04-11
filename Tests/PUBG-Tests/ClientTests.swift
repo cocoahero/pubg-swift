@@ -29,7 +29,7 @@ class ClientTests: XCTestCase {
         switch client.requestWithRegion(.pcNorthAmerica, path: "matches") {
         case .success(let request):
             XCTAssertNotNil(request.url)
-            XCTAssertEqual(request.url!.path, "/shard/pc-na/matches")
+            XCTAssertEqual(request.url!.path, "/shards/pc-na/matches")
             XCTAssertEqual(request.url!.query, "")
         case .failure(let error):
             XCTFail(error.localizedDescription)
@@ -43,7 +43,7 @@ class ClientTests: XCTestCase {
         case .success(let request):
             let url = request.url
             XCTAssertNotNil(url)
-            XCTAssertEqual(url!.path, "/shard/xbox-na/matches/1337")
+            XCTAssertEqual(url!.path, "/shards/xbox-na/matches/1337")
             XCTAssertEqual(url!.query, "sort=createdAt")
         case .failure(let error):
             XCTFail(error.localizedDescription)
@@ -56,7 +56,7 @@ class ClientTests: XCTestCase {
         let task = client.match(withID: "abc-123", region: .pcNorthAmerica, resultHandler: { _ in })
 
         let url = task?.originalRequest?.url
-        XCTAssertEqual(url?.path, "/shard/pc-na/matches/abc-123")
+        XCTAssertEqual(url?.path, "/shards/pc-na/matches/abc-123")
         XCTAssertEqual(url?.query, "")
     }
 
@@ -66,7 +66,7 @@ class ClientTests: XCTestCase {
         let task = client.player(withID: "abc-123", region: .pcNorthAmerica, resultHandler: { _ in })
 
         let url = task?.originalRequest?.url
-        XCTAssertEqual(url?.path, "/shard/pc-na/players/abc-123")
+        XCTAssertEqual(url?.path, "/shards/pc-na/players/abc-123")
         XCTAssertEqual(url?.query, "")
     }
 
@@ -76,7 +76,7 @@ class ClientTests: XCTestCase {
         let task = client.players(withIDs: ["abc-123", "def-456"], region: .pcNorthAmerica, resultHandler: { _ in })
 
         let url = task?.originalRequest?.url
-        XCTAssertEqual(url?.path, "/shard/pc-na/players")
+        XCTAssertEqual(url?.path, "/shards/pc-na/players")
         XCTAssertEqual(url?.query?.removingPercentEncoding, "filter[playerIds]=abc-123,def-456")
     }
 
@@ -86,7 +86,7 @@ class ClientTests: XCTestCase {
         let task = client.players(withNames: ["PlayerUnknown", "FooBar"], region: .pcNorthAmerica, resultHandler: { _ in })
 
         let url = task?.originalRequest?.url
-        XCTAssertEqual(url?.path, "/shard/pc-na/players")
+        XCTAssertEqual(url?.path, "/shards/pc-na/players")
         XCTAssertEqual(url?.query?.removingPercentEncoding, "filter[playerNames]=PlayerUnknown,FooBar")
     }
 

@@ -84,7 +84,7 @@ public class Client {
         var urlComponents = URLComponents(string: "https://api.playbattlegrounds.com/")!
 
         if let region = region?.rawValue {
-            urlComponents.path = "/shard/\(region)/\(path)"
+            urlComponents.path = "/shards/\(region)/\(path)"
         }
         else {
             urlComponents.path = "/\(path)"
