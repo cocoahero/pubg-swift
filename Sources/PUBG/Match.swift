@@ -30,6 +30,10 @@ public struct Match: Decodable {
         return attributes.mapName
     }
 
+    public var timestamp: Date {
+        return attributes.timestamp
+    }
+
     let attributes: Attributes
 }
 
@@ -43,6 +47,8 @@ extension Match {
         let gameMode: String
 
         let duration: TimeInterval
+
+        let timestamp: Date
     }
 }
 
@@ -52,5 +58,6 @@ extension Match.Attributes {
         case duration
         case gameMode
         case region = "shardId"
+        case timestamp = "createdAt"
     }
 }

@@ -63,7 +63,7 @@ public class Client {
                 switch response.statusCode {
                 case 200:
                     resultHandler(Result(attempt: {
-                        try JSONDecoder().decode(Response<T>.self, from: data)
+                        try jsonDecoder.decode(Response<T>.self, from: data)
                     }))
                 case 401:
                     resultHandler(.failure(Error.unauthorized))
@@ -114,3 +114,9 @@ extension Client {
         case unknown
     }
 }
+
+fileprivate let jsonDecoder: JSONDecoder = {
+    let decoder = JSONDecoder()
+    decoder.dateDecodingStrategy = .iso8601
+    return decoder
+}()
