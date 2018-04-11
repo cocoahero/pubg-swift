@@ -25,29 +25,29 @@ public class Client {
 
     // MARK: - Public
 
-    public func match(withID id: String, region: Region, resultHandler: @escaping (Result<Data>) -> Void) -> URLSessionTask? {
+    public func match(withID id: String, region: Region, resultHandler: @escaping (Result<Response<Match>>) -> Void) -> URLSessionTask? {
         return executeRequest(region: region, path: "matches/\(id)", resultHandler: resultHandler)
     }
 
-    public func player(withID id: String, region: Region, resultHandler: @escaping (Result<Data>) -> Void) -> URLSessionTask? {
+    public func player(withID id: String, region: Region, resultHandler: @escaping (Result<Response<Player>>) -> Void) -> URLSessionTask? {
         return executeRequest(region: region, path: "players/\(id)", resultHandler: resultHandler)
     }
 
-    public func players(withIDs ids: [String], region: Region, resultHandler: @escaping (Result<Data>) -> Void) -> URLSessionTask? {
+    public func players(withIDs ids: [String], region: Region, resultHandler: @escaping (Result<Response<[Player]>>) -> Void) -> URLSessionTask? {
         return executeRequest(region: region, path: "players", parameters: ["filter[playerIds]": ids.joined(separator: ",")], resultHandler: resultHandler)
     }
 
-    public func players(withNames names: [String], region: Region, resultHandler: @escaping (Result<Data>) -> Void) -> URLSessionTask? {
+    public func players(withNames names: [String], region: Region, resultHandler: @escaping (Result<Response<[Player]>>) -> Void) -> URLSessionTask? {
         return executeRequest(region: region, path: "players", parameters: ["filter[playerNames]": names.joined(separator: ",")], resultHandler: resultHandler)
     }
 
-    public func status(resultHandler: @escaping (Result<Data>) -> Void) -> URLSessionTask? {
+    public func status(resultHandler: @escaping (Result<Response<Status>>) -> Void) -> URLSessionTask? {
         return executeRequest(region: nil, path: "status", resultHandler: resultHandler)
     }
 
     // MARK: - Internal
 
-    func executeRequest(region: Region?, path: String, parameters: [String: String] = [:], resultHandler: @escaping (Result<Data>) -> Void) -> URLSessionTask? {
+    func executeRequest<T>(region: Region?, path: String, parameters: [String: String] = [:], resultHandler: @escaping (Result<Response<T>>) -> Void) -> URLSessionTask? {
         switch requestWithRegion(region, path: path, parameters: parameters) {
         case .success(let request):
             return executeRequest(request, resultHandler: resultHandler)
@@ -57,12 +57,14 @@ public class Client {
         }
     }
 
-    func executeRequest(_ request: URLRequest, resultHandler: @escaping (Result<Data>) -> Void) -> URLSessionTask {
+    func executeRequest<T>(_ request: URLRequest, resultHandler: @escaping (Result<Response<T>>) -> Void) -> URLSessionTask {
         let task = urlSession.dataTask(with: request, completionHandler: { data, response, error in
             if let data = data, let response = response as? HTTPURLResponse {
                 switch response.statusCode {
                 case 200:
-                    resultHandler(.success(data))
+                    resultHandler(Result(attempt: {
+                        try JSONDecoder().decode(Response<T>.self, from: data)
+                    }))
                 case 401:
                     resultHandler(.failure(Error.unauthorized))
                 case 404:
