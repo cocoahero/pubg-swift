@@ -14,12 +14,43 @@ public struct Player: Decodable {
 
     public let id: String
 
-    public let attributes: Attributes
+    public var name: String {
+        return attributes.name
+    }
+
+    public var matches: [String] {
+        return relationships.matches.data.map({ $0.id })
+    }
+
+    let attributes: Attributes
+
+    let relationships: Relationships
 }
 
 extension Player {
-    public struct Attributes: Decodable {
+    struct Attributes: Decodable {
 
-        public let name: String
+        let name: String
+    }
+}
+
+extension Player {
+    struct Relationships: Decodable {
+
+        let matches: MatchRelationship
+    }
+}
+
+extension Player.Relationships {
+    struct MatchRelationship: Decodable {
+
+        let data: [Match]
+    }
+}
+
+extension Player.Relationships.MatchRelationship {
+    struct Match: Decodable {
+
+        let id: String
     }
 }
