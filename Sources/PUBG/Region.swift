@@ -6,7 +6,7 @@
 //  Copyright © 2018 Jonathan Baker. All rights reserved.
 //
 
-public enum Region: String {
+public enum Region: String, Decodable {
     /// PC Asia
     case pcAsia = "pc-as"
 
